@@ -1,6 +1,7 @@
 -module(pa).
 
--compile({parse_transform, pa_pt}).
+-compile({parse_transform, pa_bind_pt}).
+-compile({parse_transform, pa_cut_pt}).
 
 % Parse transform generates set of functions bind/1-(N+1)
 % that will be exported from this module.

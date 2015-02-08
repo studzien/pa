@@ -1,4 +1,4 @@
--module(pa_pt).
+-module(pa_bind_pt).
 
 -export([parse_transform/2]).
 
@@ -23,7 +23,8 @@ exports(MaxArity) ->
      [{?FUNCTION, AppliedArgs+1} || AppliedArgs <- lists:seq(0, MaxArity)]}.
 
 functions(MaxArity) ->
-    [function(AppliedArgs, MaxArity) || AppliedArgs <- lists:seq(0, MaxArity)].
+    [ function(AppliedArgs, MaxArity) ||
+      AppliedArgs <- lists:seq(0, MaxArity) ].
 
 function(AppliedArgs, MaxArity) ->
     Clauses = [clause(FunArity, AppliedArgs)
